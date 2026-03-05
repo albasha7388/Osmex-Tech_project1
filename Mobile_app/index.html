@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#1A3A5A">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>سيتي فيكس - نظام إدارة البلاغات المجتمعية</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <!-- ==================== ONBOARDING SCREENS ==================== -->
+    <div id="onboarding-screens" class="onboarding-container">
+        <div class="onboarding-slider">
+            <!-- Screen 1 -->
+            <div class="onboarding-slide active" data-slide="1">
+                <div class="onboarding__image">
+                    <div class="onboarding__icon-wrapper">
+                        <i data-lucide="camera" class="onboarding__icon"></i>
+                    </div>
+                </div>
+                <h2 class="onboarding__title">صوّر المشكلة</h2>
+                <p class="onboarding__description">التقط صورة واضحة للمشكلة مع إمكانية إضافة ملاحظات تفصيلية</p>
+                <div class="onboarding__indicators">
+                    <span class="indicator active"></span>
+                    <span class="indicator"></span>
+                    <span class="indicator"></span>
+                </div>
+            </div>
+            
+            <!-- Screen 2 -->
+            <div class="onboarding-slide" data-slide="2">
+                <div class="onboarding__image">
+                    <div class="onboarding__icon-wrapper">
+                        <i data-lucide="map-pin" class="onboarding__icon"></i>
+                    </div>
+                </div>
+                <h2 class="onboarding__title">تتبع الحالة</h2>
+                <p class="onboarding__description">تابع حالة بلاغك على الخريطة واعرف موقع الفريق المعالج لحظة بلحظة</p>
+                <div class="onboarding__indicators">
+                    <span class="indicator"></span>
+                    <span class="indicator active"></span>
+                    <span class="indicator"></span>
+                </div>
+            </div>
+            
+            <!-- Screen 3 -->
+            <div class="onboarding-slide" data-slide="3">
+                <div class="onboarding__image">
+                    <div class="onboarding__icon-wrapper">
+                        <i data-lucide="circle-check" class="onboarding__icon"></i>
+                    </div>
+                </div>
+                <h2 class="onboarding__title">أكد الحل</h2>
+                <p class="onboarding__description">شارك في تحسين مدينتك بتأكيد حل المشكلة بعد المعالجة</p>
+                <div class="onboarding__indicators">
+                    <span class="indicator"></span>
+                    <span class="indicator"></span>
+                    <span class="indicator active"></span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="onboarding__actions">
+            <button class="btn btn--accent btn--lg onboarding__btn" id="onboarding-next">
+                التالي <i data-lucide="arrow-left"></i>
+            </button>
+            <button class="btn btn--ghost onboarding__btn" id="onboarding-skip">
+                تخطي
+            </button>
+        </div>
+    </div>
+
+    <!-- ==================== AUTH SCREENS ==================== -->
+    <div id="auth-screens" class="auth-container" style="display: none;">
+        <!-- Login Screen -->
+        <div class="auth-screen active" id="login-screen">
+            <div class="auth__header">
+                <div class="auth__logo">
+                    <div class="auth__logo-icon">
+                        <i data-lucide="building-2"></i>
+                    </div>
+                    <h1 class="auth__title">سيتي فيكس</h1>
+                </div>
+                <p class="auth__subtitle">مرحباً بعودتك!</p>
+            </div>
+            
+            <form class="auth__form" id="login-form">
+                <div class="form-group">
+                    <label class="form-label" for="login-phone">رقم الهاتف أو البريد الإلكتروني</label>
+                    <div class="form-input-wrapper">
+                        <i data-lucide="user" class="form-input-icon"></i>
+                        <input type="text" id="login-phone" class="form-input" placeholder="أدخل رقم هاتفك أو بريدك" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="login-password">كلمة المرور</label>
+                    <div class="form-input-wrapper">
+                        <i data-lucide="lock" class="form-input-icon"></i>
+                        <input type="password" id="login-password" class="form-input" placeholder="أدخل كلمة المرور" required>
+                        <button type="button" class="form-input-toggle" id="toggle-password">
+                            <i data-lucide="eye"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="form-group form-group--inline">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="remember-me">
+                        <span>تذكرني</span>
+                    </label>
+                    <a href="#" class="auth__link" id="forgot-password">نسيت كلمة المرور؟</a>
+                </div>
+                
+                <button type="submit" class="btn btn--primary btn--lg btn--full">
+                    تسجيل الدخول
+                </button>
+            </form>
+            
+            <div class="auth__footer">
+                <p>ليس لديك حساب؟ <a href="#" class="auth__link" id="show-signup">إنشاء حساب جديد</a></p>
+            </div>
+            
+            <div class="auth__divider">
+                <span>أو تابع باستخدام</span>
+            </div>
+            
+            <div class="auth__social">
+                <button class="btn btn--outline auth__social-btn">
+                    <i data-lucide="chrome"></i>
+                    <span>Google</span>
+                </button>
+                <button class="btn btn--outline auth__social-btn">
+                    <i data-lucide="apple"></i>
+                    <span>Apple</span>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Sign Up Screen -->
+        <div class="auth-screen" id="signup-screen" style="display: none;">
+            <div class="auth__header">
+                <div class="auth__logo">
+                    <div class="auth__logo-icon">
+                        <i data-lucide="building-2"></i>
+                    </div>
+                    <h1 class="auth__title">سيتي فيكس</h1>
+                </div>
+                <p class="auth__subtitle">إنشاء حساب جديد</p>
+            </div>
+            
+            <form class="auth__form" id="signup-form">
+                <div class="form-group">
+                    <label class="form-label" for="signup-name">الاسم الكامل</label>
+                    <div class="form-input-wrapper">
+                        <i data-lucide="user" class="form-input-icon"></i>
+                        <input type="text" id="signup-name" class="form-input" placeholder="أدخل اسمك الكامل" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="signup-phone">رقم الهاتف</label>
+                    <div class="form-input-wrapper">
+                        <i data-lucide="phone" class="form-input-icon"></i>
+                        <input type="tel" id="signup-phone" class="form-input" placeholder="05xxxxxxxx" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="signup-email">البريد الإلكتروني</label>
+                    <div class="form-input-wrapper">
+                        <i data-lucide="mail" class="form-input-icon"></i>
+                        <input type="email" id="signup-email" class="form-input" placeholder="example@email.com" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="signup-password">كلمة المرور</label>
+                    <div class="form-input-wrapper">
+                        <i data-lucide="lock" class="form-input-icon"></i>
+                        <input type="password" id="signup-password" class="form-input" placeholder="8 أحرف على الأقل" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="signup-confirm-password">تأكيد كلمة المرور</label>
+                    <div class="form-input-wrapper">
+                        <i data-lucide="lock" class="form-input-icon"></i>
+                        <input type="password" id="signup-confirm-password" class="form-input" placeholder="أعد إدخال كلمة المرور" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">نوع الحساب</label>
+                    <div class="role-selector">
+                        <label class="role-option active">
+                            <input type="radio" name="user-role" value="citizen" checked>
+                            <div class="role-option__content">
+                                <i data-lucide="user"></i>
+                                <span>مواطن</span>
+                            </div>
+                        </label>
+                        <label class="role-option">
+                            <input type="radio" name="user-role" value="employee">
+                            <div class="role-option__content">
+                                <i data-lucide="briefcase"></i>
+                                <span>موظف جهة</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="form-group form-group--inline">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="agree-terms" required>
+                        <span>أوافق على <a href="#" class="auth__link">شروط الاستخدام</a> و<a href="#" class="auth__link">سياسة الخصوصية</a></span>
+                    </label>
+                </div>
+                
+                <button type="submit" class="btn btn--primary btn--lg btn--full">
+                    إنشاء حساب
+                </button>
+            </form>
+            
+            <div class="auth__footer">
+                <p>لديك حساب بالفعل؟ <a href="#" class="auth__link" id="show-login">تسجيل الدخول</a></p>
+            </div>
+        </div>
+        
+        <!-- OTP Verification Screen -->
+        <div class="auth-screen" id="otp-screen" style="display: none;">
+            <div class="auth__header">
+                <div class="auth__logo">
+                    <div class="auth__logo-icon">
+                        <i data-lucide="shield-check"></i>
+                    </div>
+                    <h1 class="auth__title">التحقق من الرقم</h1>
+                </div>
+                <p class="auth__subtitle">أدخل الرمز المرسل إلى <span id="otp-phone-display">05xxxxxxxx</span></p>
+            </div>
+            
+            <form class="auth__form" id="otp-form">
+                <div class="otp-inputs">
+                    <input type="text" class="otp-input" maxlength="1" pattern="[0-9]" inputmode="numeric">
+                    <input type="text" class="otp-input" maxlength="1" pattern="[0-9]" inputmode="numeric">
+                    <input type="text" class="otp-input" maxlength="1" pattern="[0-9]" inputmode="numeric">
+                    <input type="text" class="otp-input" maxlength="1" pattern="[0-9]" inputmode="numeric">
+                </div>
+                
+                <div class="otp-timer">
+                    <span id="timer-text">إعادة الإرسال خلال <span id="timer-count">60</span> ثانية</span>
+                    <button type="button" class="auth__link" id="resend-otp" disabled>إعادة الإرسال</button>
+                </div>
+                
+                <button type="submit" class="btn btn--primary btn--lg btn--full">
+                    التحقق
+                </button>
+            </form>
+            
+            <button class="btn btn--ghost auth__back-btn" id="back-to-signup">
+                <i data-lucide="arrow-right"></i>
+                <span>العودة</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- ==================== MAIN APP CONTAINER ==================== -->
+    <div id="app-container" class="app-container" style="display: none;">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="app-header__content">
+                <button class="app-header__menu-btn" id="menu-btn">
+                    <i data-lucide="menu"></i>
+                </button>
+                <div class="app-header__logo">
+                    <div class="app-header__logo-icon">
+                        <i data-lucide="building-2"></i>
+                    </div>
+                    <span class="app-header__title">سيتي فيكس</span>
+                </div>
+                <div class="app-header__actions">
+                    <button class="app-header__icon-btn" id="notification-btn">
+                        <i data-lucide="bell"></i>
+                        <span class="notification-badge">3</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Side Menu -->
+        <div class="side-menu" id="side-menu">
+            <div class="side-menu__header">
+                <div class="side-menu__user">
+                    <div class="side-menu__avatar">
+                        <span>أ</span>
+                    </div>
+                    <div class="side-menu__user-info">
+                        <h4 class="side-menu__user-name">أحمد محمد</h4>
+                        <p class="side-menu__user-role">مواطن</p>
+                    </div>
+                </div>
+                <button class="side-menu__close" id="close-menu">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+            
+            <nav class="side-menu__nav">
+                <a href="#" class="side-menu__link active" data-page="home">
+                    <i data-lucide="home"></i>
+                    <span>الرئيسية</span>
+                </a>
+                <a href="#" class="side-menu__link" data-page="reports">
+                    <i data-lucide="file-text"></i>
+                    <span>بلاغاتي</span>
+                </a>
+                <a href="#" class="side-menu__link" data-page="map">
+                    <i data-lucide="map"></i>
+                    <span>الخريطة</span>
+                </a>
+                <a href="#" class="side-menu__link" data-page="notifications">
+                    <i data-lucide="bell"></i>
+                    <span>الإشعارات</span>
+                    <span class="side-menu__badge">3</span>
+                </a>
+                <a href="#" class="side-menu__link" data-page="profile">
+                    <i data-lucide="user"></i>
+                    <span>الملف الشخصي</span>
+                </a>
+                <a href="#" class="side-menu__link" data-page="settings">
+                    <i data-lucide="settings"></i>
+                    <span>الإعدادات</span>
+                </a>
+            </nav>
+            
+            <div class="side-menu__footer">
+                <button class="side-menu__logout" id="logout-btn">
+                    <i data-lucide="log-out"></i>
+                    <span>تسجيل الخروج</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav" id="bottom-nav">
+            <a href="#" class="bottom-nav__item active" data-page="home">
+                <i data-lucide="home"></i>
+                <span>الرئيسية</span>
+            </a>
+            <a href="#" class="bottom-nav__item" data-page="reports">
+                <i data-lucide="file-text"></i>
+                <span>بلاغاتي</span>
+            </a>
+            <a href="#" class="bottom-nav__item bottom-nav__item--fab" data-page="create-report">
+                <div class="bottom-nav__fab">
+                    <i data-lucide="plus"></i>
+                </div>
+            </a>
+            <a href="#" class="bottom-nav__item" data-page="map">
+                <i data-lucide="map"></i>
+                <span>الخريطة</span>
+            </a>
+            <a href="#" class="bottom-nav__item" data-page="profile">
+                <i data-lucide="user"></i>
+                <span>حسابي</span>
+            </a>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="app-main" id="app-main">
+            <!-- Content will be loaded dynamically -->
+        </main>
+    </div>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Toast Container -->
+    <div id="toast-container"></div>
+
+    <script src="api.js"></script>
+    <script src="ui.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
